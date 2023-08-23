@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: docs
 
 book:
   title: "Linear Algebra"
@@ -7,8 +8,8 @@ book:
   date: "8/21/2023"
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
+    - p1.qmd
+    - p2.qmd
     - references.qmd
 
 bibliography: references.bib
