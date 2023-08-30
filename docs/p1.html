@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Linear Algebra - 1&nbsp; Systems of Linear Equations</title>
+<title>Linear Algebra - 1&nbsp; Linear Systems</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./p1.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Systems of Linear Equations</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./p1.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Linear Systems</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -149,13 +149,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./p1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Systems of Linear Equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Linear Systems</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./p2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Row Reduction and Echelon Forms</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./p3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Solving Linear Systems</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./p4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Vectors</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -174,8 +186,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#systems-of-linear-equations-with-a-single-solution" id="toc-systems-of-linear-equations-with-a-single-solution" class="nav-link active" data-scroll-target="#systems-of-linear-equations-with-a-single-solution"><span class="header-section-number">1.1</span> Systems of Linear Equations with a Single Solution</a></li>
-  <li><a href="#systems-of-linear-equations-without-a-single-solution" id="toc-systems-of-linear-equations-without-a-single-solution" class="nav-link" data-scroll-target="#systems-of-linear-equations-without-a-single-solution"><span class="header-section-number">1.2</span> Systems of Linear Equations without a Single Solution</a></li>
+  <li><a href="#systems-of-linear-equations" id="toc-systems-of-linear-equations" class="nav-link active" data-scroll-target="#systems-of-linear-equations">Systems of Linear Equations</a>
+  <ul class="collapse">
+  <li><a href="#systems-with-a-single-solution" id="toc-systems-with-a-single-solution" class="nav-link" data-scroll-target="#systems-with-a-single-solution">Systems with a Single Solution</a></li>
+  <li><a href="#systems-without-a-single-solution" id="toc-systems-without-a-single-solution" class="nav-link" data-scroll-target="#systems-without-a-single-solution">Systems without a Single Solution</a></li>
+  </ul></li>
+  <li><a href="#matrix-notation" id="toc-matrix-notation" class="nav-link" data-scroll-target="#matrix-notation">Matrix Notation</a>
+  <ul class="collapse">
+  <li><a href="#converting-a-system-of-linear-equations-to-matrix-form" id="toc-converting-a-system-of-linear-equations-to-matrix-form" class="nav-link" data-scroll-target="#converting-a-system-of-linear-equations-to-matrix-form">Converting a system of linear equations to matrix form</a></li>
+  <li><a href="#dimensions-of-a-matrix" id="toc-dimensions-of-a-matrix" class="nav-link" data-scroll-target="#dimensions-of-a-matrix">Dimensions of a matrix:</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -184,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Systems of Linear Equations</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Linear Systems</span></h1>
 </div>
 
 
@@ -200,10 +220,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="systems-of-linear-equations-with-a-single-solution" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="systems-of-linear-equations-with-a-single-solution"><span class="header-section-number">1.1</span> Systems of Linear Equations with a Single Solution</h2>
+<section id="systems-of-linear-equations" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="systems-of-linear-equations">Systems of Linear Equations</h2>
+<section id="systems-with-a-single-solution" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="systems-with-a-single-solution">Systems with a Single Solution</h3>
 <p>Below is a <strong>linear equation</strong>:</p>
-<div id="f3d0c44b" class="cell" data-execution_count="1">
+<p><span class="math display">\[
+\begin{cases}
+x_1 - 2x_2 = -1
+\end{cases}
+\]</span></p>
+<div id="2fc43026" class="cell" data-execution_count="1">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
@@ -264,19 +291,21 @@ Definition of a linear equation
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A linear equation in the variables <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> is an equation that can be written in the form</p>
-<p><span class="math display">\[a_1x_1 + a_2x_2 + \cdots + a_nx_n = b\]</span></p>
+<p><span class="math display">\[
+a_1x_1 + a_2x_2 + \cdots + a_nx_n = b
+\]</span></p>
 <p>where <span class="math inline">\(b\)</span> and the coefficients <span class="math inline">\(a_1, a_2, \ldots, a_n\)</span> are real or complex numbers. The subscript <span class="math inline">\(n\)</span> may be any positive integer.</p>
 </div>
 </div>
 </div>
 <p>Take the following <strong>system of linear equations</strong>: <span class="math display">\[
-\begin{align*}
-x_1 - 2x_2 &amp;= -1\\
--x_1 + 3x_2 &amp;= 3
-\end{align*}
+\begin{cases}
+&amp;x_1 &amp;- 2x_2 &amp;= -1\\
+-&amp;x_1 &amp;+ 3x_2 &amp;= 3
+\end{cases}
 \]</span></p>
 <p>If we plot these equations on a graph, we can see that they intersect at a single point. This point is the solution to the system of equations.</p>
-<div id="87206353" class="cell" data-execution_count="2">
+<div id="095b93ae" class="cell" data-execution_count="2">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
@@ -341,17 +370,17 @@ Definition of a system of linear equations
 <div class="callout-body-container callout-body">
 <p>A system of linear equations (or a linear system) is a collection of one or more linear equations involving the same variables- say <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span>. An example is</p>
 <p><span class="math display">\[
-\begin{align*}
-x_1 - 2x_2 &amp;= -1\\
--x_1 + 3x_2 &amp;= 3
-\end{align*}
+\begin{cases}
+&amp;x_1 &amp;- 2x_2 &amp;= -1\\
+-&amp;x_1 &amp;+ 3x_2 &amp;= 3
+\end{cases}
 \]</span></p>
 <p>The above system has two equations and two variables where <span class="math inline">\(x_1, x_2\)</span> are the variables.</p>
 </div>
 </div>
 </div>
 <p>The equations above have only one solution since they intersect at a single point.</p>
-<div id="4ee168e8" class="cell" data-execution_count="3">
+<div id="624a2a04" class="cell" data-execution_count="3">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
@@ -365,7 +394,7 @@ x_1 - 2x_2 &amp;= -1\\
 \]</span></p>
 </div>
 </div>
-<div id="ab81a379" class="cell" data-execution_count="4">
+<div id="9d01de9d" class="cell" data-execution_count="4">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
@@ -443,31 +472,32 @@ Definition of a solution
 </div>
 <p>The above list, <span class="math inline">\((3,2)\)</span>, is the solution to the system of equations because it is the only list of numbers that makes both equations true. When we substitute <span class="math inline">\(3\)</span> and <span class="math inline">\(2\)</span> for <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> in the first equation, both equations turn out to be true!</p>
 <p><span class="math display">\[
-\begin{align*}
-x_1 - 2x_2 &amp;= -1\\
--x_1 + 3x_2 &amp;= 3
-\end{align*}
+\begin{cases}
+&amp;x_1 &amp;- 2x_2 &amp;= -1\\
+-&amp;x_1 &amp;+ 3x_2 &amp;= 3
+\end{cases}
 \]</span></p>
 <p>turns into</p>
 <p><span class="math display">\[
-\begin{align*}
-(3) - 2(2) &amp;= -1 \;\; &amp;\text{True!}\\
--(3) + 3(2) &amp;= 3 \;\; &amp;\text{True!}
-\end{align*}
+\begin{cases}
+&amp;(3) &amp;- 2(2) &amp;= -1 \;\; &amp;\text{True!}\\
+-&amp;(3) &amp;+ 3(2) &amp;= 3 \;\; &amp;\text{True!}
+\end{cases}
 \]</span></p>
 </section>
-<section id="systems-of-linear-equations-without-a-single-solution" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="systems-of-linear-equations-without-a-single-solution"><span class="header-section-number">1.2</span> Systems of Linear Equations without a Single Solution</h2>
-<p><strong>No Solution</strong></p>
+<section id="systems-without-a-single-solution" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="systems-without-a-single-solution">Systems without a Single Solution</h3>
+<section id="no-solution" class="level5 unnumbered">
+<h5 class="unnumbered anchored" data-anchor-id="no-solution"><strong>No Solution</strong></h5>
 <p>Take the following system of linear equations:</p>
 <p><span class="math display">\[
-\begin{align*}
-x_1 - 2x_2 &amp;= -1\\
--x_1 + 2x_2 &amp;= 3
-\end{align*}
+\begin{cases}
+&amp;x_1 &amp;- 2x_2 &amp;= -1\\
+-&amp;x_1 &amp;+ 2x_2 &amp;= 3
+\end{cases}
 \]</span></p>
 <p>If we plot these equations on a graph, we can see that they are parallel and never intersect. This means that there is no solution to this system of equations.</p>
-<div id="024bfce5" class="cell" data-execution_count="5">
+<div id="05a2b444" class="cell" data-execution_count="5">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
@@ -519,16 +549,18 @@ x_1 - 2x_2 &amp;= -1\\
 </div>
 </div>
 </div>
-<p><strong>Infinite Solutions</strong></p>
+</section>
+<section id="infinite-solutions" class="level5 unnumbered">
+<h5 class="unnumbered anchored" data-anchor-id="infinite-solutions"><strong>Infinite Solutions</strong></h5>
 <p>Take the following system of linear equations:</p>
 <p><span class="math display">\[
-\begin{align*}
-x_1 - 2x_2 &amp;= -1\\
--x_1 + 2x_2 &amp;= 1
-\end{align*}
+\begin{cases}
+&amp;x_1 &amp;- 2x_2 &amp;= -1\\
+-&amp;x_1 &amp;+ 2x_2 &amp;= 1
+\end{cases}
 \]</span></p>
 <p>If we plot these equations on a graph, we can see that they are the same line. This means that there are an infinite number of solutions to this system of equations.</p>
-<div id="65b680db" class="cell" data-execution_count="6">
+<div id="89527a48" class="cell" data-execution_count="6">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
@@ -598,8 +630,60 @@ Tip
 </ol>
 </div>
 </div>
+</section>
+</section>
+</section>
+<section id="matrix-notation" class="level1 unnumbered">
+<h1 class="unnumbered">Matrix Notation</h1>
+<section id="converting-a-system-of-linear-equations-to-matrix-form" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="converting-a-system-of-linear-equations-to-matrix-form">Converting a system of linear equations to matrix form</h2>
+<p>The essential information of a linear system can be recorded compactly in a rectangular array called a matrix.</p>
+<p>The following system of linear equations:</p>
+<p><span class="math display">\[
+\begin{cases}
+&amp;x_1 &amp;- 2x_2 &amp;= -1\\
+-&amp;x_1 &amp;+ 3x_2 &amp;= 3
+\end{cases}
+\]</span></p>
+<p>The following matrix is called the <strong>coefficient matrix</strong> of the system, it contains the coefficients of the variables left of the equals sign:</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; -2\\
+-1 &amp; 3
+\end{bmatrix}
+\]</span></p>
+<p>The following matrix is called the <strong>augmented matrix</strong> of the system, it contains the coefficients of the variables left of the equals sign and the constants right of the equals sign (separated by a vertical line):</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; -2 &amp;|&amp; -1\\
+-1 &amp; 3 &amp;|&amp; 3
+\end{bmatrix}
+\]</span></p>
+</section>
+<section id="dimensions-of-a-matrix" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="dimensions-of-a-matrix">Dimensions of a matrix:</h2>
+<p>The size of a matrix tells how many rows and columns it has. The augmented matrix above has 3 rows and 4 columns and is called a <span class="math inline">\(3 \times 4\)</span> (read “3 by 4”) matrix.</p>
+<p>If m and n are positive integers, an m n matrix is a rectangular array of numbers with m rows and n columns. (The number of rows always comes first.) Matrix notation will simplify the calculations in the examples that follow</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In matrix notation:</p>
+<ul>
+<li><span class="math inline">\(m\)</span> is the number of rows</li>
+<li><span class="math inline">\(n\)</span> is the number of columns</li>
+</ul>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -955,7 +1039,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./p2.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Row Reduction and Echelon Forms</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

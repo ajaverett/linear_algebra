@@ -1,8 +1,16 @@
-# Systems of Linear Equations
+# Linear Systems
 
-## Systems of Linear Equations with a Single Solution
+## Systems of Linear Equations {.unnumbered}
+
+### Systems with a Single Solution {.unnumbered}
 
 Below is a **linear equation**:
+
+$$
+\begin{cases}
+x_1 - 2x_2 = -1
+\end{cases}
+$$
 
 ```{python}
 #| code-fold: true
@@ -52,7 +60,9 @@ plt.show()
 
 A linear equation in the variables $x_1, x_2, \ldots, x_n$ is an equation that can be written in the form
 
-$$a_1x_1 + a_2x_2 + \cdots + a_nx_n = b$$
+$$
+a_1x_1 + a_2x_2 + \cdots + a_nx_n = b
+$$
 
 where $b$ and the coefficients $a_1, a_2, \ldots, a_n$ are real or complex numbers. The subscript $n$ may be any positive integer.
 
@@ -61,10 +71,10 @@ where $b$ and the coefficients $a_1, a_2, \ldots, a_n$ are real or complex numbe
 
 Take the following **system of linear equations**:
 $$
-\begin{align*}
-x_1 - 2x_2 &= -1\\
--x_1 + 3x_2 &= 3
-\end{align*}
+\begin{cases}
+&x_1 &- 2x_2 &= -1\\
+-&x_1 &+ 3x_2 &= 3
+\end{cases}
 $$
 
 If we plot these equations on a graph, we can see that they intersect at a single point. This point is the solution to the system of equations.
@@ -121,10 +131,10 @@ plt.show()
 A system of linear equations (or a linear system) is a collection of one or more linear equations involving the same variables- say $x_1, x_2, \ldots, x_n$. An example is
 
 $$
-\begin{align*}
-x_1 - 2x_2 &= -1\\
--x_1 + 3x_2 &= 3
-\end{align*}
+\begin{cases}
+&x_1 &- 2x_2 &= -1\\
+-&x_1 &+ 3x_2 &= 3
+\end{cases}
 $$
 
 The above system has two equations and two variables where $x_1, x_2$ are the variables. 
@@ -209,37 +219,36 @@ The above list, $(3,2)$, is the solution to the system of equations because it i
 
 
 $$
-\begin{align*}
-x_1 - 2x_2 &= -1\\
--x_1 + 3x_2 &= 3
-\end{align*}
+\begin{cases}
+&x_1 &- 2x_2 &= -1\\
+-&x_1 &+ 3x_2 &= 3
+\end{cases}
 $$
 
 turns into 
 
 $$
-\begin{align*}
-(3) - 2(2) &= -1 \;\; &\text{True!}\\
--(3) + 3(2) &= 3 \;\; &\text{True!}
-\end{align*}
+\begin{cases}
+&(3) &- 2(2) &= -1 \;\; &\text{True!}\\
+-&(3) &+ 3(2) &= 3 \;\; &\text{True!}
+\end{cases}
 $$
 
 
-## Systems of Linear Equations without a Single Solution
+### Systems without a Single Solution {.unnumbered}
 
-**No Solution**
+##### **No Solution** {.unnumbered}
 
 Take the following system of linear equations:
 
 $$
-\begin{align*}
-x_1 - 2x_2 &= -1\\
--x_1 + 2x_2 &= 3
-\end{align*}
+\begin{cases}
+&x_1 &- 2x_2 &= -1\\
+-&x_1 &+ 2x_2 &= 3
+\end{cases}
 $$
 
 If we plot these equations on a graph, we can see that they are parallel and never intersect. This means that there is no solution to this system of equations.
-
 
 ```{python}
 #| code-fold: true
@@ -287,15 +296,15 @@ ax.legend()
 plt.show()
 ```
 
-**Infinite Solutions**
+##### **Infinite Solutions** {.unnumbered}
 
 Take the following system of linear equations:
 
 $$
-\begin{align*}
-x_1 - 2x_2 &= -1\\
--x_1 + 2x_2 &= 1
-\end{align*}
+\begin{cases}
+&x_1 &- 2x_2 &= -1\\
+-&x_1 &+ 2x_2 &= 1
+\end{cases}
 $$
 
 If we plot these equations on a graph, we can see that they are the same line. This means that there are an infinite number of solutions to this system of equations.
@@ -357,3 +366,51 @@ A system of linear equations has
 :::
 
 
+# Matrix Notation {.unnumbered}
+
+## Converting a system of linear equations to matrix form {.unnumbered}
+
+The essential information of a linear system can be recorded compactly in a rectangular array called a matrix.
+
+The following system of linear equations:
+
+$$
+\begin{cases}
+&x_1 &- 2x_2 &= -1\\
+-&x_1 &+ 3x_2 &= 3
+\end{cases}
+$$
+
+The following matrix is called the **coefficient matrix** of the system, it contains the coefficients of the variables left of the equals sign:
+
+$$
+\begin{bmatrix}
+1 & -2\\
+-1 & 3
+\end{bmatrix}
+$$
+
+The following matrix is called the **augmented matrix** of the system, it contains the coefficients of the variables left of the equals sign and the constants right of the equals sign (separated by a vertical line):
+
+$$
+\begin{bmatrix}
+1 & -2 &|& -1\\
+-1 & 3 &|& 3
+\end{bmatrix}
+$$
+
+## Dimensions of a matrix: {.unnumbered}
+
+The size of a matrix tells how many rows and columns it has. The augmented matrix
+above has 3 rows and 4 columns and is called a $3 \times 4$ (read “3 by 4”) matrix. 
+
+If m and n are positive integers, an m  n matrix is a rectangular array of numbers with m rows and n columns. (The number of rows always comes first.) Matrix notation will simplify the calculations in the examples that follow
+
+::: {.callout-tip}
+
+In matrix notation: 
+
+ - $m$ is the number of rows 
+ - $n$ is the number of columns
+
+:::

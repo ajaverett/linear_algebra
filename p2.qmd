@@ -1,3 +1,645 @@
-# Summary
+# Row Reduction and Echelon Forms
 
-In summary, this book has no content whatsoever.
+A matrix has a few different "special" forms. Two specific forms are the **row echelon form** and the **reduced row echelon form**. These forms are useful because they make it easy to solve systems of linear equations. Below we will build up to these forms by discussing the elements of a matrix, types of forms, and the elementary row operations that are used to reduce a matrix to these forms.
+
+## Elements of a matrix {.unnumbered}
+
+Check out the following matrix:
+
+$$
+\left[\begin{array}{ccc}
+    1 & 2 & 3 & 4 \\
+    0 & 5 & 6 & 7 \\
+    0 & 0 & 0 & 8 \\
+    0 & 0 & 0 & 0
+\end{array}\right]
+\begin{array}{c}
+    \leftarrow R_1 \\
+    \leftarrow R_2 \\
+    \leftarrow R_3 \\
+    \leftarrow R_4
+\end{array}
+$$
+
+### Leading Entries {.unnumbered}
+
+The **leading entry** of a row is the first nonzero entry in that row. For example,
+
+-   the leading entry of $R_1$ is 1,
+-   the leading entry of $R_2$ is 5,\
+-   the leading entry of $R_3$ is 8, and
+-   $R_4$ has no leading entry.
+
+### Pivot Positions {.unnumbered}
+
+The **pivot positions** of a matrix are the positions of the leading entries in the matrix.
+
+-   for $R_1$, the leading entry is in the first column,
+-   for $R_2$ the leading entry is in the second column,\
+-   for $R_3$, the leading entry is in the fourth column, and
+-   $R_4$ has no leading entry- thus no pivot position.
+
+### Zero Rows {.unnumbered}
+
+A **zero row** is a row that contains only zeros. In the example above, $R_4$ is a zero row.
+
+## Row Echelon Form {.unnumbered}
+
+A matrix is in **row echelon form** if it meets the following criteria:
+
+1.  Zero rows are at the bottom of the matrix.
+2.  Each leading entry of a row is in a column to the right of the leading entry of the row above it.
+3.  All entries in a column below a leading entry are zeros.
+
+Here are some examples of matrices in row echelon form:
+
+::: panel-tabset
+:header-classes: myheader
+
+# Square
+
+$$
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & 4 & 5 \\
+    0 & 0 & 6 
+\end{bmatrix}
+$$
+
+# Tall (m \> n)
+
+$$
+\begin{bmatrix}
+    2 & 3 & 4 \\
+    0 & 1 & 5 \\
+    0 & 0 & 3 \\
+    0 & 0 & 0
+\end{bmatrix}
+$$
+
+# Wide (m \< n)
+
+$$
+\begin{bmatrix}
+  1 & 2 & 3 & 4 \\
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+# General Form (sorta)
+
+$$
+\begin{bmatrix}
+    \square & * & * & \dots & * \\
+    0 & \square & * & \dots & * \\
+    0 & 0 & \square & \dots & * \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & 0 & \dots & \square \\
+    0 & 0 & 0 & \dots & 0
+\end{bmatrix}
+$$
+
+where $\square$ represents a nonzero entry, and $*$ represents any entry (possibly zero).
+:::
+
+## Reduced Row Echelon Form {.unnumbered}
+
+A matrix is in **reduced row echelon form** if it meets the following criteria:
+
+1.  It is in row echelon form.
+2.  The leading entry in each nonzero row is 1.
+3.  Each leading 1 is the only nonzero entry in its column.
+
+Here are some examples of matrices in reduced row echelon form:
+
+::: panel-tabset
+:header-classes: myheader
+
+# Square
+
+$$
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1 
+\end{bmatrix}
+$$
+
+# Tall (m \> n)
+
+$$
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1 \\
+    0 & 0 & 0
+\end{bmatrix}
+$$
+
+# Wide (m \< n)
+
+$$
+\begin{bmatrix}
+  1 & 0 & 0 & 1 \\
+  0 & 1 & 0 & 2 \\
+  0 & 0 & 1 & 3
+\end{bmatrix}
+$$
+
+# General Form (sorta)
+
+$$
+\begin{bmatrix}
+    1 & 0 & \dots & 0 & * \\
+    0 & 1 & \dots & 0 & * \\
+    \vdots & \vdots & \ddots & \vdots & \vdots \\
+    0 & 0 & \dots & 1 & * \\
+    0 & 0 & \dots & 0 & 0
+\end{bmatrix}
+$$
+:::
+
+## Elementary Row Operations {.unnumbered}
+
+There are three types of elementary row operations:
+
+1.  **Swap the positions of two rows.**
+
+$$
+R_i \leftrightarrow R_j
+$$
+
+2.  **Multiply a row by a non-zero scalar.**
+
+$$
+kR_i \rightarrow R_i
+$$
+
+3.  **Add or subtract the multiple of one row to another row.**
+
+$$
+kR_i + R_j \rightarrow R_j
+$$
+
+## The Row Reduction Algorithm {.unnumbered}
+
+The **row reduction algorithm** is a method for solving systems of linear equations. It is based on the idea that if two systems of equations have the same solution, then the augmented matrices of those systems are row equivalent. This means that the two matrices can be transformed into each other by a sequence of elementary row operations. The row reduction algorithm is used to transform a matrix into row echelon form or reduced row echelon form.
+
+### The Forward Phase {.unnumbered}
+
+The forward phase of the row reduction algorithm is used to reduce a matrix to row echelon form. The steps are as follows:
+
+1.  Write the augmented matrix of the system of equations.
+2.  Begin with the leftmost nonzero column. This is a pivot column. The pivot position is at the top. Select a nonzero entry in the pivot column as a pivot. If necessary, interchange rows to move this entry into the pivot position
+3.  Use row replacement operations to create zeros in all positions below the pivot
+4.  Assuming all the entries under the last pivot is zero, we can now ignore the row containing the pivot position and cover all rows, if any, above it. Apply steps 1-3 to the remaining submatrix. Repeat the process until there are no more nonzero rows to modify.
+
+::: panel-tabset
+# Step 1
+
+Below is the augmented matrix of a system of equations. 
+
+$$
+\begin{bmatrix}
+    0 & 3 & -6 & 6 \\
+    3 & -7 & 8 & -5 \\
+    3 & -9 & 12 & -9
+\end{bmatrix}
+$$
+
+# Step 2
+
+Step 2 states: *Begin with the leftmost nonzero column. This is a pivot column. The pivot position is at the top. Select a nonzero entry in the pivot column as a pivot. If necessary, interchange rows to move this entry into the pivot position.*
+
+$$
+\begin{bmatrix}
+    \mathbf{0} & 3 & -6 & 6 \\
+    \mathbf{3} & -7 & 8 & -5 \\
+    \mathbf{3} & -9 & 12 & -9
+\end{bmatrix}
+$$
+
+
+Since the first entry in $R_1$ is a zero, we need to swap it with a row where the first entry is not a zero. We can swap $R_1$ with $R_2$ or $R_3$.
+
+$$
+\begin{array}{c}
+     R_1 \rightarrow \\
+     R_2 \rightarrow \\
+     R_3 \rightarrow \\
+\end{array}
+\left[\begin{array}{ccc}
+    \mathbf{0} & 3 & -6 & 6 \\
+    \mathbf{3} & -7 & 8 & -5 \\
+    \mathbf{3} & -9 & 12 & -9
+\end{array}\right]
+$$
+
+We can do the following:
+
+$R_1 \leftrightarrow R_2 \;\;\;$ or $\;\;\;R_1 \leftrightarrow R_3$
+
+I guess, let's do $R_1 \leftrightarrow R_2$...
+
+Since we did an elementary row operation, we need to update our matrix into a new matrix:
+
+
+$$
+\begin{bmatrix}
+    \mathbf{0} & 3 & -6 & 6 \\
+    \mathbf{3} & -7 & 8 & -5 \\
+    \mathbf{3} & -9 & 12 & -9
+\end{bmatrix}
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\begin{bmatrix}
+    \mathbf{3} & -7 & 8 & -5  \\
+    \mathbf{0} & 3 & -6 & 6   \\
+    \mathbf{3} & -9 & 12 & -9
+\end{bmatrix}
+$$
+
+# Step 3
+
+Step 3 states: *Use row replacement operations to create zeros in all positions below the pivot.*
+
+$$
+\begin{array}{c}
+    R_1\rightarrow\\
+    R_2\rightarrow\\
+    R_3\rightarrow\\
+\end{array}
+\left[\begin{array}{ccc}
+    \mathbf{3} & -7 & 8 & -5  \\
+    \mathbf{0} & 3 & -6 & 6   \\
+    \mathbf{3} & -9 & 12 & -9
+\end{array}\right]
+$$
+
+The bottom left number $3$ in $R_3$ needs fixing since it is a non-zero entry below the pivot that we're working with. We can do the elementary row operation: *Add or subtract the multiple of one row to another row* to fix this.
+$$
+kR_i + R_j \rightarrow R_j
+$$
+
+$$
+\text{where } k = -1, i = 1, \text{ and } j = 3
+$$
+
+$$
+-R_1 + R_3 \rightarrow R_2
+$$
+
+The operation is performed as follows:
+
+
+::: columns
+::: column
+
+$$
+-R_1
+$$
+
+<br>
+
+$$
+\begin{align*}
+    &(-1)\left[ -3,  \;-7, \;\; 8, \;\;\; -5 \right] \\
+\end{align*}
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\begin{align*}
+    &\left[ (-1)3,  \;(-1)-7, \;\; (-1)8, \;\;\; (-1)-5 \right] \\
+\end{align*}
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\begin{bmatrix}
+    -3, \;\;7, -8, \;\;5
+\end{bmatrix}
+$$
+:::
+
+::: column
+$$
+R_3
+$$
+
+<br>
+
+$$
+\begin{bmatrix}
+    3 & -9 & 12 & -9 \\
+\end{bmatrix}
+$$
+
+:::
+
+:::
+
+Below is what happens when we add the two rows together:
+
+$$
+-R_1 + R_2
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\begin{array}{cc}
+    &\left[\;-3,  \;\;\;\;7, \;\; -8, \;\;\;\; 5 \right] \\
+    +\; &\left[ \;\;\;3, \;\; -9, \;\;\;12, \; -9 \right]
+\end{array}
+$$
+
+$$
+\rule{6cm}{0.4pt}
+$$
+
+$$
+=\;\;\;\;\;\begin{bmatrix}
+    \;\;0 & -2 & \;\;4 & -4 \\
+\end{bmatrix}
+$$
+
+Now, $\left[0 \; -2 \;\; 4 -4 \right]$ is the new $R_2$.
+
+New matrix:
+
+$$
+\begin{bmatrix}
+    3 & -9 & 12 & -9 \\
+    0 & 3 & -6 & 6 \\
+    0 & -2 & 4 & -4
+\end{bmatrix}
+$$
+
+# Step 4
+
+Step 4 states: *Assuming all the entries under the last pivot is zero, we can now ignore the row containing the pivot position and cover all rows, if any, above it. Apply steps 1-3 to the remaining submatrix. Repeat the process until there are no more nonzero rows to modify.*
+
+Below, we can see that all the entries under the last pivot are zero, so we can ignore the row containing the pivot position and cover all rows, if any, above it.
+
+$$
+\begin{bmatrix}
+    \bf{3} & -9 & 12 & -9 \\
+    \bf{0} & 3 & -6 & 6 \\
+    \bf{0} & 2 & 4 & 4
+\end{bmatrix}
+$$
+
+<br><br>
+
+$$
+\text{Since everything below the 3 is a zero,}
+$$
+
+$$
+\begin{array}{c}
+    \text{we can ignore the first row now} \rightarrow \\
+                                \\
+                                \\
+\end{array}
+\begin{bmatrix}
+    \times & \times & \times & \times \\
+    0 & \bf{3} & -6 & 6 \\
+    0 & \bf{-2} & 4 & -4
+\end{bmatrix}
+$$
+
+We can now apply steps 1-3 to the remaining submatrix. Repeat the process until finished.
+
+$$
+\begin{array}{c}
+    R_1 \rightarrow \\
+    R_2 \rightarrow \\
+    R_3 \rightarrow \\
+\end{array}
+\begin{bmatrix}
+    3 & -9 & 12 & -9 \\
+    0 & 3 & -6 & 6 \\
+    0 & -2 & 4 & -4
+\end{bmatrix}
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\frac{2}{3}R_2 + R_3 \rightarrow R_3
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\begin{bmatrix}
+    3 & -9 & 12 & -9 \\
+    0 & 3 & -6 & 6 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+# Finish
+
+We can now see that the matrix is in row echelon form. 
+
+$$
+\begin{bmatrix}
+    3 & -9 & 12 & -9 \\
+    0 & 3 & -6 & 6 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+If we were to solve this with python, we would do the following:
+
+```{python}
+import sympy as sp  
+from sympy import init_printing
+init_printing()
+
+A = sp.Matrix([
+    [0,  3,  -6,   6], 
+    [3, -7,   8,  -5], 
+    [3, -9,  12,  -9]])
+
+A.echelon_form()
+```
+
+*Note that depending on step 2, we could have swapped $R_1$ with $R_3$ instead of $R_1$ with $R_2$. This would have resulted in a different matrix*
+
+
+:::
+
+### The Backwards Phase {.unnumbered}
+
+The backwards phase of the row reduction algorithm is used to reduce a matrix in row echelon form to reduced row echelon form. The **reduced row echelon form** of a matrix is unique. This means that there is only one reduced row echelon form for a given matrix. This is not true for row echelon form. A matrix can have many different row echelon forms. The steps are as follows:
+
+5.  Beginning with the rightmost pivot and working upward and to the left, create zeros above each pivot. If a pivot is not 1, make it 1 by a scaling operation.
+
+
+::: panel-tabset
+
+# Step 5a
+
+Step five says: *Beginning with the rightmost pivot and working upward and to the left, create zeros above each pivot. If a pivot is not 1, make it 1 by a scaling operation.*
+
+Below is the matrix from the previous example in row echelon form. Currently the only pivots are 3 and 3. We can make the rightmost pivot 1 by dividing the row by 3.
+
+$$
+\begin{bmatrix}
+    \bf{3} & -9 & 12 & -9 \\
+    0 & \bf{3} & -6 & 6 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\frac{1}{3}R_2 \rightarrow R_2
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\begin{bmatrix}
+    \bf{3} & -9 & 12 & -9 \\
+    0 & \bf{1} & -2 & 2 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+# Step 5b
+
+For the right most pivot, we can make the entries above it zero with elementary row operations.
+
+$$
+\begin{bmatrix}
+    3 & -9 & 12 & -9 \\
+    0 & \bf{1} & -2 & 2 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+$$
+\downarrow
+$$
+
+$$
+9R_2 + R_1 \rightarrow R_1
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\begin{bmatrix}
+    3 & 0 & -6 & 9 \\
+    0 & \bf{1} & -2 & 2 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+# Step 5c
+
+Now we can make the leftmost pivot 1 by dividing the row by 3.
+
+$$
+\begin{bmatrix}
+    3 & 0 & -6 & 9 \\
+    0 & \bf{1} & -2 & 2 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\frac{1}{3}R_1 \rightarrow R_1
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\begin{bmatrix}
+    1 & 0 & -2 & 3 \\
+    0 & 1 & -2 & 2 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+# Finish
+
+We can now see that the matrix is in reduced row echelon form.
+
+$$
+\begin{bmatrix}
+    1 & 0 & -2 & 3 \\
+    0 & 1 & -2 & 2 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+Alternatively, we can solve this with python:
+
+```{python}
+import sympy as sp  
+from sympy import init_printing
+init_printing()
+
+A = sp.Matrix([
+    [0,  3,  -6,   6], 
+    [3, -7,   8,  -5], 
+    [3, -9,  12,  -9]])
+
+A.rref()[0]
+```
+
+```{python}
+import sympy as sp  
+from sympy import init_printing
+init_printing()
+
+A = sp.Matrix([
+    [3, -9,  12,  -9], 
+    [0,  3,  -6,   6],
+    [0,  0,   0,   0]])
+
+A.rref()[0]
+```
+
+
+:::
+
+## Solving Systems of Linear Equations {.unnumbered}
+
+ 

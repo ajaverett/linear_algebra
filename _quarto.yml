@@ -10,6 +10,8 @@ book:
     - index.qmd
     - p1.qmd
     - p2.qmd
+    - p3.qmd
+    - p4.qmd
     - references.qmd
 
 bibliography: references.bib
