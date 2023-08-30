@@ -401,8 +401,15 @@ $$
 
 ## Dimensions of a matrix: {.unnumbered}
 
-The size of a matrix tells how many rows and columns it has. The augmented matrix
-above has 3 rows and 4 columns and is called a $3 \times 4$ (read “3 by 4”) matrix. 
+The size of a matrix tells how many rows and columns it has. The augmented matrix below has 3 rows and 4 columns and is called a $3 \times 4$ (read “3 by 4”) matrix. 
+
+$$
+\begin{bmatrix}
+&1 &2 &3 &4\\
+&5 &6 &7 &8\\
+&9 &10 &11 &12
+\end{bmatrix}
+$$
 
 If m and n are positive integers, an m  n matrix is a rectangular array of numbers with m rows and n columns. (The number of rows always comes first.) Matrix notation will simplify the calculations in the examples that follow
 

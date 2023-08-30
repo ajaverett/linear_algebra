@@ -67,7 +67,7 @@
     "href": "p1.html#dimensions-of-a-matrix",
     "title": "1  Linear Systems",
     "section": "Dimensions of a matrix:",
-    "text": "Dimensions of a matrix:\nThe size of a matrix tells how many rows and columns it has. The augmented matrix above has 3 rows and 4 columns and is called a \\(3 \\times 4\\) (read “3 by 4”) matrix.\nIf m and n are positive integers, an m n matrix is a rectangular array of numbers with m rows and n columns. (The number of rows always comes first.) Matrix notation will simplify the calculations in the examples that follow\n\n\n\n\n\n\nTip\n\n\n\nIn matrix notation:\n\n\\(m\\) is the number of rows\n\\(n\\) is the number of columns"
+    "text": "Dimensions of a matrix:\nThe size of a matrix tells how many rows and columns it has. The augmented matrix below has 3 rows and 4 columns and is called a \\(3 \\times 4\\) (read “3 by 4”) matrix.\n\\[\n\\begin{bmatrix}\n&1 &2 &3 &4\\\\\n&5 &6 &7 &8\\\\\n&9 &10 &11 &12\n\\end{bmatrix}\n\\]\nIf m and n are positive integers, an m n matrix is a rectangular array of numbers with m rows and n columns. (The number of rows always comes first.) Matrix notation will simplify the calculations in the examples that follow\n\n\n\n\n\n\nTip\n\n\n\nIn matrix notation:\n\n\\(m\\) is the number of rows\n\\(n\\) is the number of columns"
   },
   {
     "objectID": "index.html",
