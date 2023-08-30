@@ -1,49 +1,5 @@
 # Solving Linear Systems
 
-::: {.callout-note}
-
-# Existence and Uniqueness Question
-
-
-The two fundamental questions about a linear system are:
-
-1. Is the system consistent; that is, does at least one solution exist?
-2. If a solution exists, is it the only one; that is, is the solution unique
-
-<br>
-
-**Examples from [Linear Systems (page 1)](/p1.html)** 
-
-A consistent system that has a unique solution
-
-$$
-\left[\begin{array}{cc|c}
-1 & -2 & -1 \\
--1 & 3 & 3
-\end{array}\right]
-$$
-
-A consistent system that has infinitely many solutions
-
-$$
-\left[\begin{array}{cc|c}
-1 & -2 & -1 \\
--1 & 2 & 1
-\end{array}\right]  
-$$
-
-An inconsistent system (A system that has no solution)
-
-$$
-\left[\begin{array}{cc|c}
-1 & -2 & -1 \\
--1 & 2 & 3
-\end{array}\right]
-$$
-
-
-:::
-
 
 ## The workflow for solving a linear system {.unnumbered}
 
@@ -273,3 +229,98 @@ $$
 We can see that the system is inconsistent because the last equation is $0x_3 = 2$ which is impossible. No value of $x_3$ will make this equation true. Therefore, the system has no solution.
 
 :::
+
+
+
+## Existence and Uniqueness Question {.unnumbered}
+
+
+The two fundamental questions about a linear system are:
+
+1. Is the system consistent; that is, does at least one solution exist?
+2. If a solution exists, is it the only one; that is, is the solution unique
+
+
+**Examples from [Linear Systems (page 1)](/p1.html)** 
+
+A consistent system that has a unique solution
+
+$$
+\left[\begin{array}{cc|c}
+1 & -2 & -1 \\
+-1 & 3 & 3
+\end{array}\right]
+$$
+
+$$
+\text{or}
+$$
+
+$$
+\begin{cases}
+&\;\;\;x_1 &- &2x_2 &= -1 \\
+&-x_1 &+ &3x_2 &= \;\;\;3
+\end{cases}
+$$
+
+A consistent system that has infinitely many solutions
+
+$$
+\left[\begin{array}{cc|c}
+1 & -2 & -1 \\
+-1 & 2 & 1
+\end{array}\right]  
+$$
+
+$$
+\text{or}
+$$
+
+$$
+\begin{cases}
+&\;\;\;x_1 &- &2x_2 &= -1 \\
+&-x_1 &+ &2x_2 &= \;\;\;1
+\end{cases}
+$$
+
+
+An inconsistent system (A system that has no solution)
+
+$$
+\left[\begin{array}{cc|c}
+1 & -2 & -1 \\
+-1 & 2 & 3
+\end{array}\right]
+$$
+
+$$
+\text{or}
+$$
+
+$$
+\begin{cases}
+&\;\;\;x_1 &- &2x_2 &= -1 \\
+&-x_1 &+ &2x_2 &= \;\;\;3
+\end{cases}
+$$
+
+::: {.callout-note}
+
+# Theorem 2 
+
+**Existence and Uniqueness Theorem**
+
+A linear system is consistent if and only if the rightmost column of the augmented matrix is not a pivot column—that is, if and only if an echelon form of the
+augmented matrix has no row of the form
+
+$$
+\left[\begin{array}{cccc|c}
+0 & \cdots & 0 & 0 & b
+\end{array}\right]
+\;\;\;\;\;\;\;\text{where } b \neq 0
+$$
+
+If a linear system is consistent, then the solution set contains either (i) a unique solution, when there are no free variables, or (ii) infinitely many solutions, when there is at least one free variable.  
+
+:::
+

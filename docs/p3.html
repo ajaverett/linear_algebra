@@ -172,6 +172,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./p5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Combinations and Span</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -191,6 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#infinitely-many-solutions-example" id="toc-infinitely-many-solutions-example" class="nav-link" data-scroll-target="#infinitely-many-solutions-example">Infinitely Many Solutions Example</a></li>
   <li><a href="#no-solution-example" id="toc-no-solution-example" class="nav-link" data-scroll-target="#no-solution-example">No Solution Example</a></li>
   </ul></li>
+  <li><a href="#existence-and-uniqueness-question" id="toc-existence-and-uniqueness-question" class="nav-link" data-scroll-target="#existence-and-uniqueness-question">Existence and Uniqueness Question</a></li>
   </ul>
 </nav>
     </div>
@@ -215,46 +222,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Existence and Uniqueness Question
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The two fundamental questions about a linear system are:</p>
-<ol type="1">
-<li>Is the system consistent; that is, does at least one solution exist?</li>
-<li>If a solution exists, is it the only one; that is, is the solution unique</li>
-</ol>
-<p><br></p>
-<p><strong>Examples from <a href=".\p1.html">Linear Systems (page 1)</a></strong></p>
-<p>A consistent system that has a unique solution</p>
-<p><span class="math display">\[
-\left[\begin{array}{cc|c}
-1 &amp; -2 &amp; -1 \\
--1 &amp; 3 &amp; 3
-\end{array}\right]
-\]</span></p>
-<p>A consistent system that has infinitely many solutions</p>
-<p><span class="math display">\[
-\left[\begin{array}{cc|c}
-1 &amp; -2 &amp; -1 \\
--1 &amp; 2 &amp; 1
-\end{array}\right]  
-\]</span></p>
-<p>An inconsistent system (A system that has no solution)</p>
-<p><span class="math display">\[
-\left[\begin{array}{cc|c}
-1 &amp; -2 &amp; -1 \\
--1 &amp; 2 &amp; 3
-\end{array}\right]
-\]</span></p>
-</div>
-</div>
 <section id="the-workflow-for-solving-a-linear-system" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="the-workflow-for-solving-a-linear-system">The workflow for solving a linear system</h2>
 <ol type="1">
@@ -318,7 +285,7 @@ Existence and Uniqueness Question
 <p><span class="math display">\[
 \downarrow
 \]</span></p>
-<div id="d18ba01b" class="cell" data-execution_count="1">
+<div id="cf3a6c9f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> init_printing</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>init_printing()</span>
@@ -330,7 +297,7 @@ Existence and Uniqueness Question
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>])</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>A.echelon_form()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <p><span class="math inline">\(\displaystyle \left[\begin{matrix}1 &amp; -3 &amp; 4 &amp; -4\\0 &amp; 2 &amp; -5 &amp; 4\\0 &amp; 0 &amp; 0 &amp; 0\end{matrix}\right]\)</span></p>
 </div>
 </div>
@@ -422,7 +389,7 @@ x_1 &amp;- &amp;3x_2 &amp;+ &amp;4x_3 &amp;= -4 \\
 <p><span class="math display">\[
 \downarrow
 \]</span></p>
-<div id="d2d58f34" class="cell" data-execution_count="2">
+<div id="cbc792ac" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp  </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> init_printing</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>init_printing()</span>
@@ -434,7 +401,7 @@ x_1 &amp;- &amp;3x_2 &amp;+ &amp;4x_3 &amp;= -4 \\
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>])</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>A.echelon_form()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <p><span class="math inline">\(\displaystyle \left[\begin{matrix}1 &amp; 3 &amp; 5 &amp; -2\\0 &amp; 1 &amp; 4 &amp; -5\\0 &amp; 0 &amp; 0 &amp; 2\end{matrix}\right]\)</span></p>
 </div>
 </div>
@@ -470,9 +437,87 @@ x_1 &amp;+ &amp;3x_2 &amp;+ &amp;5x_3 &amp;= -2 \\
 </div>
 </div>
 </div>
-
-
 </section>
+</section>
+<section id="existence-and-uniqueness-question" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="existence-and-uniqueness-question">Existence and Uniqueness Question</h2>
+<p>The two fundamental questions about a linear system are:</p>
+<ol type="1">
+<li>Is the system consistent; that is, does at least one solution exist?</li>
+<li>If a solution exists, is it the only one; that is, is the solution unique</li>
+</ol>
+<p><strong>Examples from <a href=".\p1.html">Linear Systems (page 1)</a></strong></p>
+<p>A consistent system that has a unique solution</p>
+<p><span class="math display">\[
+\left[\begin{array}{cc|c}
+1 &amp; -2 &amp; -1 \\
+-1 &amp; 3 &amp; 3
+\end{array}\right]
+\]</span></p>
+<p><span class="math display">\[
+\text{or}
+\]</span></p>
+<p><span class="math display">\[
+\begin{cases}
+&amp;\;\;\;x_1 &amp;- &amp;2x_2 &amp;= -1 \\
+&amp;-x_1 &amp;+ &amp;3x_2 &amp;= \;\;\;3
+\end{cases}
+\]</span></p>
+<p>A consistent system that has infinitely many solutions</p>
+<p><span class="math display">\[
+\left[\begin{array}{cc|c}
+1 &amp; -2 &amp; -1 \\
+-1 &amp; 2 &amp; 1
+\end{array}\right]  
+\]</span></p>
+<p><span class="math display">\[
+\text{or}
+\]</span></p>
+<p><span class="math display">\[
+\begin{cases}
+&amp;\;\;\;x_1 &amp;- &amp;2x_2 &amp;= -1 \\
+&amp;-x_1 &amp;+ &amp;2x_2 &amp;= \;\;\;1
+\end{cases}
+\]</span></p>
+<p>An inconsistent system (A system that has no solution)</p>
+<p><span class="math display">\[
+\left[\begin{array}{cc|c}
+1 &amp; -2 &amp; -1 \\
+-1 &amp; 2 &amp; 3
+\end{array}\right]
+\]</span></p>
+<p><span class="math display">\[
+\text{or}
+\]</span></p>
+<p><span class="math display">\[
+\begin{cases}
+&amp;\;\;\;x_1 &amp;- &amp;2x_2 &amp;= -1 \\
+&amp;-x_1 &amp;+ &amp;2x_2 &amp;= \;\;\;3
+\end{cases}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Existence and Uniqueness Theorem</strong></p>
+<p>A linear system is consistent if and only if the rightmost column of the augmented matrix is not a pivot column—that is, if and only if an echelon form of the augmented matrix has no row of the form</p>
+<p><span class="math display">\[
+\left[\begin{array}{cccc|c}
+0 &amp; \cdots &amp; 0 &amp; 0 &amp; b
+\end{array}\right]
+\;\;\;\;\;\;\;\text{where } b \neq 0
+\]</span></p>
+<p>If a linear system is consistent, then the solution set contains either (i) a unique solution, when there are no free variables, or (ii) infinitely many solutions, when there is at least one free variable.</p>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

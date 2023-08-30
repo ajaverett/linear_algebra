@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Aj Averett">
-<meta name="dcterms.date" content="2023-08-21">
 
-<title>Linear Algebra</title>
+<title>Linear Algebra - 5&nbsp; Linear Combinations and Span</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./p1.html" rel="next">
+<link href="./references.html" rel="next">
+<link href="./p4.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -68,8 +67,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -82,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Linear Algebra</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./p5.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Combinations and Span</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -109,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Algebra</span></a>
   </div>
 </li>
@@ -139,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p5.html" class="sidebar-item-text sidebar-link">
+  <a href="./p5.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Combinations and Span</span></span></a>
   </div>
 </li>
@@ -155,42 +152,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#linear-algebra" id="toc-linear-algebra" class="nav-link active" data-scroll-target="#linear-algebra">Linear Algebra</a>
-  <ul class="collapse">
-  <li><a href="#notation-for-systems-of-linear-equations" id="toc-notation-for-systems-of-linear-equations" class="nav-link" data-scroll-target="#notation-for-systems-of-linear-equations">Notation for systems of linear equations</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Linear Algebra</h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Combinations and Span</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Aj Averett </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">August 21, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -199,81 +175,9 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="linear-algebra" class="level1 unnumbered">
-<h1 class="unnumbered">Linear Algebra</h1>
-<section id="notation-for-systems-of-linear-equations" class="level2">
-<h2 class="anchored" data-anchor-id="notation-for-systems-of-linear-equations">Notation for systems of linear equations</h2>
-<p><strong>System of Equations</strong></p>
-<p><span class="math display">\[
-\begin{cases}
-a_{11}x_1 &amp; + &amp;a_{12}x_2 &amp;+ \dots+ &amp; a_{1n}x_n &amp;= b_1 \\
-a_{21}x_1 &amp; + &amp;a_{22}x_2 &amp;+ \dots+ &amp; a_{2n}x_n &amp;= b_2 \\
-\vdots &amp;&amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots \\
-a_{m1}x_1 &amp; + &amp;a_{m2}x_2 &amp;+ \dots+ &amp; a_{mn}x_n &amp;= b_m
-\end{cases}
-\]</span></p>
-<p><strong>Augmented matrix:</strong> <span class="math inline">\(\begin{bmatrix}A|\vec{b}\end{bmatrix}\)</span></p>
-<p><span class="math display">\[
-\left[\begin{array}{@{}cccc|c@{}}
-a_{11} &amp; a_{12} &amp; \dots &amp; a_{1n} &amp; b_1 \\
-a_{21} &amp; a_{22} &amp; \dots &amp; a_{2n} &amp; b_2 \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots \\
-a_{m1} &amp; a_{m2} &amp; \dots &amp; a_{mn} &amp; b_m
-\end{array}\right]
-\]</span></p>
-<p><strong>Vector Equation:</strong> <span class="math inline">\(x_1\vec{a_1}+x_2\vec{a_2}+...+x_n\vec{a_n}=\vec{b}\)</span></p>
-<p><span class="math display">\[
-x_1
-\begin{bmatrix}
-a_{11}\\
-a_{21}\\
-\vdots\\
-a_{m1}
-\end{bmatrix} +
-x_2
-\begin{bmatrix}
-a_{12}\\
-a_{22}\\
-\vdots\\
-a_{m2}
-\end{bmatrix}+
-\dots +
-x_n
-\begin{bmatrix}
-a_{1n}\\
-a_{2n}\\
-\vdots\\
-a_{mn}
-\end{bmatrix} =
-\begin{bmatrix}
-b_1\\
-b_2\\
-\vdots\\
-b_m
-\end{bmatrix}
-\]</span></p>
-<p><strong>Matrix Equation:</strong> <span class="math inline">\(A\vec{x}=\vec{b}\)</span></p>
-<p><span class="math display">\[
-\begin{bmatrix}
-a_{11} &amp; a_{12} &amp; \dots &amp; a_{1n} \\
-a_{21} &amp; a_{22} &amp; \dots &amp; a_{2n} \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-a_{m1} &amp; a_{m2} &amp; \dots &amp; a_{mn}
-\end{bmatrix}
-\begin{bmatrix}
-x_1 \\
-x_2 \\
-\vdots \\
-x_n
-\end{bmatrix}=
-\begin{bmatrix}
-b_1 \\ b_2 \\ \vdots \\ b_m
-\end{bmatrix}
-\]</span></p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/k7RM-ot2NWY" title="What are vectors?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -622,10 +526,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./p4.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Vectors</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./p1.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Linear Systems</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

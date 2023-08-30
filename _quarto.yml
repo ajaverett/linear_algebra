@@ -12,6 +12,7 @@ book:
     - p2.qmd
     - p3.qmd
     - p4.qmd
+    - p5.qmd
     - references.qmd
 
 bibliography: references.bib

@@ -1,1 +1,106 @@
 # Vectors
+
+## Vectors in $\mathbb{R}^2$ {.unnumbered}
+
+A matrix with only one column is called a column vector, or simply a vector. Examples of vectors with two entries are
+
+$$
+\bf{u} = 
+\begin{bmatrix}
+1 \\
+2
+\end{bmatrix}
+;
+\quad
+\bf{v} = 
+\begin{bmatrix}
+-1 \\
+0
+\end{bmatrix}
+;
+\quad
+\bf{w} = 
+\begin{bmatrix}
+w_1 \\
+w_2
+\end{bmatrix}
+$$
+
+The set of all vectors with two entries is denoted by $\mathbb{R}^2$. The set of all vectors with three entries is denoted by $\mathbb{R}^3$. In general, the set of all vectors with $n$ entries is denoted by $\mathbb{R}^n$.
+
+{{< video https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab title='What are vectors?' >}} 
+
+## Operations with vectors {.unnumbered}
+
+**Equalities**
+
+Two vectors $\bf{u}$ and $\bf{v}$ in $\mathbb{R}^2$ are equal if and only if $u_1 = v_1$ and $u_2 = v_2$. In other words, two vectors are equal if and only if their corresponding entries are equal.
+
+For example:
+
+$$
+\begin{bmatrix}
+1 \\
+2
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 \\
+2
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+1 \\
+2
+\end{bmatrix}
+\neq
+\begin{bmatrix}
+2 \\
+1
+\end{bmatrix}
+$$
+
+**Addition**
+
+Given two vectors $\bf{u}$ and $\bf{v}$ in $\mathbb{R}^2$, their sum $\bf{u} + \bf{v}$ is obtained by adding their corresponding entries:
+
+$$
+\begin{bmatrix}
+u_1 \\
+u_2
+\end{bmatrix}
++
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+u_1 + v_1 \\
+u_2 + v_2
+\end{bmatrix}
+$$
+
+
+**Scalar multiplication**
+
+Given a vector $\bf{u}$ in $\mathbb{R}^2$ and a scalar $c$, their product $c\bf{u}$ is obtained by multiplying each entry of $\bf{u}$ by $c$:
+
+$$
+c
+\begin{bmatrix}
+u_1 \\
+u_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+cu_1 \\
+cu_2
+\end{bmatrix}
+$$
+
+
+
+

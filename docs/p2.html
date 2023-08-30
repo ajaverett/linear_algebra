@@ -172,6 +172,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./p5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Combinations and Span</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -333,6 +339,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>The leading entry in each nonzero row is 1.</li>
 <li>Each leading 1 is the only nonzero entry in its column.</li>
 </ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Uniqueness of the Reduced Echelon Form</strong></p>
+<p>Each matrix is row equivalent to one and only one reduced echelon matrix</p>
+</div>
+</div>
 <p>Here are some examples of matrices in reduced row echelon form:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Square</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Tall (m &gt; n)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Wide (m &lt; n)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">General Form (sorta)</a></li></ul>
@@ -630,7 +650,7 @@ R_3
 \end{bmatrix}
 \]</span></p>
 <p>If we were to solve this with python, we would do the following:</p>
-<div id="f6761af4" class="cell" data-execution_count="1">
+<div id="8e2d2eec" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp  </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> init_printing</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>init_printing()</span>
@@ -641,7 +661,7 @@ R_3
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">3</span>, <span class="op">-</span><span class="dv">9</span>,  <span class="dv">12</span>,  <span class="op">-</span><span class="dv">9</span>]])</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>A.echelon_form()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <p><span class="math inline">\(\displaystyle \left[\begin{matrix}3 &amp; -7 &amp; 8 &amp; -5\\0 &amp; 3 &amp; -6 &amp; 6\\0 &amp; 0 &amp; 0 &amp; 0\end{matrix}\right]\)</span></p>
 </div>
 </div>
@@ -748,7 +768,7 @@ R_3
 \end{bmatrix}
 \]</span></p>
 <p>Alternatively, we can solve this with python:</p>
-<div id="2058fd84" class="cell" data-execution_count="2">
+<div id="0f0d4074" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp  </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> init_printing</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>init_printing()</span>
@@ -759,11 +779,11 @@ R_3
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">3</span>, <span class="op">-</span><span class="dv">9</span>,  <span class="dv">12</span>,  <span class="op">-</span><span class="dv">9</span>]])</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>A.rref()[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <p><span class="math inline">\(\displaystyle \left[\begin{matrix}1 &amp; 0 &amp; -2 &amp; 3\\0 &amp; 1 &amp; -2 &amp; 2\\0 &amp; 0 &amp; 0 &amp; 0\end{matrix}\right]\)</span></p>
 </div>
 </div>
-<div id="ab279087" class="cell" data-execution_count="3">
+<div id="f5980a13" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp  </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> init_printing</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>init_printing()</span>
@@ -774,7 +794,7 @@ R_3
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>,  <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>]])</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>A.rref()[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <p><span class="math inline">\(\displaystyle \left[\begin{matrix}1 &amp; 0 &amp; -2 &amp; 3\\0 &amp; 1 &amp; -2 &amp; 2\\0 &amp; 0 &amp; 0 &amp; 0\end{matrix}\right]\)</span></p>
 </div>
 </div>
