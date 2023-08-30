@@ -639,7 +639,4 @@ A.rref()[0]
 
 
 :::
-
-## Solving Systems of Linear Equations {.unnumbered}
-
  

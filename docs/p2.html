@@ -200,7 +200,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#the-forward-phase" id="toc-the-forward-phase" class="nav-link" data-scroll-target="#the-forward-phase">The Forward Phase</a></li>
   <li><a href="#the-backwards-phase" id="toc-the-backwards-phase" class="nav-link" data-scroll-target="#the-backwards-phase">The Backwards Phase</a></li>
   </ul></li>
-  <li><a href="#solving-systems-of-linear-equations" id="toc-solving-systems-of-linear-equations" class="nav-link" data-scroll-target="#solving-systems-of-linear-equations">Solving Systems of Linear Equations</a></li>
   </ul>
 </nav>
     </div>
@@ -631,7 +630,7 @@ R_3
 \end{bmatrix}
 \]</span></p>
 <p>If we were to solve this with python, we would do the following:</p>
-<div id="ceb9126e" class="cell" data-execution_count="1">
+<div id="f6761af4" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp  </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> init_printing</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>init_printing()</span>
@@ -642,7 +641,7 @@ R_3
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">3</span>, <span class="op">-</span><span class="dv">9</span>,  <span class="dv">12</span>,  <span class="op">-</span><span class="dv">9</span>]])</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>A.echelon_form()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="1">
 <p><span class="math inline">\(\displaystyle \left[\begin{matrix}3 &amp; -7 &amp; 8 &amp; -5\\0 &amp; 3 &amp; -6 &amp; 6\\0 &amp; 0 &amp; 0 &amp; 0\end{matrix}\right]\)</span></p>
 </div>
 </div>
@@ -749,7 +748,7 @@ R_3
 \end{bmatrix}
 \]</span></p>
 <p>Alternatively, we can solve this with python:</p>
-<div id="ba2ce9cc" class="cell" data-execution_count="2">
+<div id="2058fd84" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp  </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> init_printing</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>init_printing()</span>
@@ -760,11 +759,11 @@ R_3
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">3</span>, <span class="op">-</span><span class="dv">9</span>,  <span class="dv">12</span>,  <span class="op">-</span><span class="dv">9</span>]])</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>A.rref()[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <p><span class="math inline">\(\displaystyle \left[\begin{matrix}1 &amp; 0 &amp; -2 &amp; 3\\0 &amp; 1 &amp; -2 &amp; 2\\0 &amp; 0 &amp; 0 &amp; 0\end{matrix}\right]\)</span></p>
 </div>
 </div>
-<div id="dccd35e6" class="cell" data-execution_count="3">
+<div id="ab279087" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp  </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> init_printing</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>init_printing()</span>
@@ -775,19 +774,16 @@ R_3
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>,  <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>]])</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>A.rref()[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <p><span class="math inline">\(\displaystyle \left[\begin{matrix}1 &amp; 0 &amp; -2 &amp; 3\\0 &amp; 1 &amp; -2 &amp; 2\\0 &amp; 0 &amp; 0 &amp; 0\end{matrix}\right]\)</span></p>
 </div>
 </div>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="solving-systems-of-linear-equations" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="solving-systems-of-linear-equations">Solving Systems of Linear Equations</h2>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
